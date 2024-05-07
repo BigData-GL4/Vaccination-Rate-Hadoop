@@ -31,9 +31,6 @@ public class VaccinationByState {
             System.out.println("Output folder does not exist.");
         }
         FileOutputFormat.setOutputPath(job, outputFolder);
-        CassandraWriter writer = new CassandraWriter();
-        writer.writeVaccinationData("Alabama", 0.9f);
-        writer.writeVaccinationData("Alaska", 0.8f);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
 
     }

@@ -21,7 +21,7 @@ public class StateVaccinationMapper
 
         try {
             double mmrValue = Double.parseDouble(tokens[9].trim());
-            if (mmrValue > 0 ) {
+            if (mmrValue > 1 ) {
                 mmr.set(mmrValue);
                 context.write(state, mmr);
             }

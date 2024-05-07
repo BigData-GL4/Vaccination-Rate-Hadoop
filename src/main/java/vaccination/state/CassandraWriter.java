@@ -8,17 +8,15 @@ import com.datastax.driver.mapping.annotations.Column;
 import com.datastax.driver.mapping.annotations.Table;
 
 public class CassandraWriter {
-    private static final String CASSANDRA_HOST = "127.0.0.1";
+    private static final String CASSANDRA_HOST = "cassandra";
     private static final String CASSANDRA_KEYSPACE = "hadoop";
     private static final String CASSANDRA_TABLE = "state_mmr";
 
-    private Cluster cluster;
-    private Session session;
-    private Mapper<VaccinationData> mapper;
+    private final Mapper<VaccinationData> mapper;
     public CassandraWriter() {
-        this.cluster = Cluster.builder().addContactPoint(CASSANDRA_HOST).build();
-        this.session = this.cluster.connect(CASSANDRA_KEYSPACE);
-        MappingManager manager = new MappingManager(this.session);
+        Cluster cluster = Cluster.builder().addContactPoint(CASSANDRA_HOST).build();
+        Session session = cluster.connect(CASSANDRA_KEYSPACE);
+        MappingManager manager = new MappingManager(session);
         this.mapper = manager.mapper(VaccinationData.class);
     }
 
