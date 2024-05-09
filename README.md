@@ -4,9 +4,9 @@ This project implements a batch processing job using Apache Hadoop MapReduce to 
 
 ## Project Setup
 Prerequisites:
-Apache Hadoop 
-Apache Cassandra
-Maven
+Apache Hadoop <br/>
+Apache Cassandra <br/>
+Maven <br/>
 
 
 ## Testing
